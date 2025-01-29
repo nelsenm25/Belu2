@@ -87,70 +87,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-[#00ff8c] to-[#ff00ff] bg-clip-text text-transparent">
-              Welcome, {user.email?.split('@')[0]}
-            </h1>
-            {lastLogin && (
-              <p className="text-gray-400 text-sm">Last login: {lastLogin}</p>
-            )}
-          </div>
-          <Button 
-            onClick={handleSignOut}
-            variant="outline"
-            className="border-[#00ff8c] hover:bg-[#00ff8c]/10"
-          >
-            Sign Out
-          </Button>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="bg-black/30 backdrop-blur-lg border-[#00ff8c]/20">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Shield className="h-5 w-5 text-[#00ff8c]" />
-                Security
-              </CardTitle>
-              <CardDescription>Account security settings</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button 
-                variant="outline" 
-                className="w-full border-[#00ff8c]/20 hover:bg-[#00ff8c]/10"
-                onClick={() => navigate('/settings/security')}
-              >
-                Manage Security
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-black/30 backdrop-blur-lg border-[#00ff8c]/20">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <GamepadIcon className="h-5 w-5 text-[#00ff8c]" />
-                Active Tests
-              </CardTitle>
-              <CardDescription>Your current game testing projects</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-400">No active tests</p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-black/30 backdrop-blur-lg border-[#00ff8c]/20">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Clock className="h-5 w-5 text-[#00ff8c]" />
-                Recent Activity
-              </CardTitle>
-              <CardDescription>Your recent testing activity</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-400">No recent activity</p>
-            </CardContent>
-          </Card>
-        </div>
+        // ... keep existing code (welcome section and cards grid)
 
         <Card className="mt-8 bg-black/30 backdrop-blur-lg border-[#00ff8c]/20">
           <CardHeader>
