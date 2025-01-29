@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: game-access-simplifier
+    env: static
+    buildCommand: |
+      npm ci
+      export PATH="$PATH:./node_modules/.bin"
+      npm install -D vite@5.4.1 @vitejs/plugin-react-swc@3.5.0
+      npm exec vite build
+    staticPublishPath: ./dist
+    autoDeploy: true
+    
+    # Load environment variables from .env file
+    envVars:
+      - key: VITE_SUPABASE_URL
+        value: ${VITE_SUPABASE_URL}
+      - key: VITE_SUPABASE_ANON_KEY
+        value: ${VITE_SUPABASE_ANON_KEY}
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 18
+    
+    # Build settings with fixed path patterns
+    buildFilter:
+      paths:
+        - src/**/*.js
+        - src/**/*.jsx
+        - src/**/*.ts
+        - src/**/*.tsx
+        - package.json
+        - package-lock.json
+        - vite.config.ts
+        - tsconfig.json
+        - .env
+    
+    # Basic security headers
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
